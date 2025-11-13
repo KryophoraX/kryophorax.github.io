@@ -1,1 +1,106 @@
+:root{
+  --bg: #ff4b1f;       /* strong orange accent */
+  --paper: #f5e9d2;    /* soft beige */
+  --ink: #3c2f2f;      /* deep brown */
+  --muted: #caa98a;
+  --glass: rgba(255,255,255,0.06);
+  --radius: 12px;
+  --pixel-gap: 6px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:'Press Start 2P',monospace;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+.container{max-width:1000px;margin:0 auto;padding:32px}
+
+/* HERO */
+.hero{
+  position:relative;
+  min-height:86vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:linear-gradient(180deg,var(--bg) 0%, #f36b3f 50%);
+  color:var(--paper);
+}
+.hero-inner{
+  display:flex;
+  gap:28px;
+  align-items:center;
+  z-index:3;
+  padding:28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.03));
+  border-radius:20px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+  border: 3px solid rgba(0,0,0,0.12);
+}
+
+/* avatar */
+.avatar-wrap{
+  width:160px;height:160px;background:var(--paper);padding:8px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  box-shadow: inset -6px -6px 0 rgba(0,0,0,0.06);
+}
+#avatar{
+  width:128px;height:128px;object-fit:cover;border-radius:8px;display:block;
+  image-rendering: pixelated; /* make pixel art crisp */
+  border:3px solid var(--ink);
+}
+
+/* Intro text */
+.intro h1{margin:0;font-size:22px;line-height:1.05;color:var(--paper);text-shadow: 2px 2px 0 rgba(0,0,0,0.12)}
+.tagline{margin-top:16px;color:rgba(245,233,210,0.9);font-size:10px;max-width:420px}
+.cta-row{margin-top:20px;display:flex;gap:12px}
+.btn{
+  display:inline-block;padding:12px 18px;border-radius:10px;background:var(--paper);color:var(--ink);text-decoration:none;border:2px solid rgba(0,0,0,0.08);
+  box-shadow: 0 6px 0 rgba(0,0,0,0.06);
+  font-size:11px;
+}
+.btn.ghost{background:transparent;color:var(--paper);border:2px dashed rgba(255,255,255,0.18)}
+
+/* pixel background decoration */
+.pixel-bg{
+  position:absolute;right:-20px;top:24px;width:420px;height:420px;opacity:0.08;
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.02) 1px, transparent 1px), linear-gradient(180deg, rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-size:12px 12px;
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* SECTIONS */
+.section{padding:72px 0;background:transparent}
+.section h2{font-size:16px;margin:0 0 12px 0;color:var(--ink)}
+.section p{max-width:72ch;line-height:1.6;font-size:10px;color:var(--ink);opacity:0.9}
+
+/* project cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+.card{
+  background:var(--paper);padding:14px;border-radius:14px;border:3px solid rgba(0,0,0,0.06);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.card-pixel{width:100%;height:120px;background:linear-gradient(180deg,#e7d7b9,#efe7d7);border-radius:8px;margin-bottom:12px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.card-thumb{width:88px;height:88px;background:linear-gradient(180deg,var(--muted),rgba(0,0,0,0.06));border:6px solid var(--paper);box-shadow: 0 6px 0 rgba(0,0,0,0.04)}
+.card h3{font-size:12px;margin:6px 0}
+.card p{font-size:10px;color:var(--ink);opacity:0.9}
+.card-actions{margin-top:8px;display:flex;gap:8px}
+.chip{display:inline-block;padding:8px 10px;border-radius:8px;background:transparent;border:2px solid var(--ink);text-decoration:none;font-size:9px;color:var(--ink)}
+
+.skill-list{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;padding:0;list-style:none}
+.skill-list li{background:var(--ink);color:var(--paper);padding:10px 14px;border-radius:8px;font-size:9px}
+
+/* footer */
+.footer{padding:18px 0;background:linear-gradient(180deg, rgba(0,0,0,0.02), transparent);text-align:center}
+small{font-size:9px}
+
+/* Animations */
+.animate-up, .animate-left, .animate-right {opacity:0; transform:translateY(18px); transition:transform 700ms cubic-bezier(.2,.9,.3,1), opacity 600ms ease}
+.animate-left{transform:translateX(-24px)}
+.animate-right{transform:translateX(24px)}
+
+.in-view{opacity:1; transform:none}
+
+/* responsive */
+@media (max-width:720px){
+  .hero-inner{flex-direction:column;padding:18px}
+  .avatar-wrap{width:140px;height:140px}
+  #avatar{width:110px;height:110px}
+}
 
